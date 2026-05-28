@@ -182,7 +182,7 @@ section + section { border-top: 1px solid var(--line); }
   font-size: 1.05rem; color: var(--muted); max-width: 540px;
   line-height: 1.85; margin-bottom: 3rem; font-weight: 300;
 }
-.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; width: 100%; }
 
 /* ── BUTTONS ── */
 .btn {
@@ -233,7 +233,6 @@ section + section { border-top: 1px solid var(--line); }
 .tl-item:last-child { padding-bottom: 0; }
 .tl-date { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: right; padding-right: 2rem; padding-top: 2px; letter-spacing: 0.06em; line-height: 1.6; }
 .tl-line { background: var(--line2); position: relative; margin: 0 1.5rem; }
-.tl-line::before { content: ''; position: absolute; top: 4px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--text); }
 .tl-content { padding-left: 2rem; }
 .tl-role { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
 .tl-company { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
@@ -247,7 +246,7 @@ section + section { border-top: 1px solid var(--line); }
 a:hover .cert-card { background: var(--bg2); }
 a:hover .cert-card::after { color: var(--text); transform: translate(2px,-2px); }
 .cert-card.no-link::after { display: none; }
-.cert-img { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; }
+.cert-img { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
 .cert-name { font-family: var(--serif); font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 3px; }
 .cert-issuer { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
 
@@ -269,6 +268,19 @@ a:hover .cert-card::after { color: var(--text); transform: translate(2px,-2px); 
 footer { border-top: 1px solid var(--line); padding: 1.75rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: border-color 0.3s; }
 footer p { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.06em; }
 footer span { color: var(--text); }
+
+/* ── SCROLL ARROW ── */
+#scroll-arrow {
+  margin-left: auto;
+  font-size: 1.4rem; color: var(--dim); text-decoration: none;
+  animation: fadeUpDown 2s ease-in-out infinite;
+  transition: color 0.2s;
+}
+#scroll-arrow:hover { color: var(--text); }
+@keyframes fadeUpDown {
+  0%,100% { opacity: 0; transform: translateY(-6px); }
+  50% { opacity: 1; transform: translateY(0); }
+}
 
 /* ── REVEAL ── */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); will-change: opacity, transform; }
@@ -336,9 +348,10 @@ footer span { color: var(--text); }
     </div>
     <p class="hero-desc">Computer Science graduate with practical experience in Artificial Intelligence and Cybersecurity. Developing intelligent systems, hunting threats, and researching the intersection of both fields.</p>
     <div class="hero-btns">
-      <a class="btn btn-primary" href="#projects">View my work</a>
+      <a class="btn btn-primary" id="resume-btn">View Resume</a>
       <a class="btn btn-outline" href="#contact">Get in touch</a>
-      <a class="btn btn-outline" id="resume-btn">View Resume</a>
+      <a href="#about" id="scroll-arrow">↓</a>
+    </div>
     </div>
   </div>
 </div>
@@ -350,7 +363,7 @@ footer span { color: var(--text); }
     <div class="about-grid">
       <div class="about-text reveal">
         <p>Computer Science graduate from Imam Muhammad ibn Saud Islamic University with a <strong>Class Honours degree</strong>, specializing at the intersection of <strong>Artificial Intelligence and Cybersecurity</strong>.</p>
-        <p>I build AI tools, conduct threat hunts and research how machine learning can improve security operations.</p>
+        <p>I develop AI tools, conduct threat hunts, and research how machine learning can improve security operations.</p>
         <p>Driven by continuous learning, attention to detail, and the conviction that the future of security is intelligent and automated.</p>
       </div>
       <div class="stats-grid reveal">
@@ -376,7 +389,7 @@ footer span { color: var(--text); }
         <div class="tl-content">
           <div class="tl-role">Cybersecurity Analyst</div>
           <div class="tl-company">Technology Control Co. (TCC) · Riyadh, SA</div>
-          <div class="tl-desc">Monitoring and analyzing security alerts across client environments, performing Indicators of Compromise (IOC) sweeps, and handling alert triage and whitelisting.</div>
+          <div class="tl-desc">Monitoring and analyzing security alerts across client environments, performing IoC sweeps, and handling alert triage and whitelisting.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -385,7 +398,7 @@ footer span { color: var(--text); }
         <div class="tl-content">
           <div class="tl-role">Cybersecurity &amp; AI Researcher</div>
           <div class="tl-company">Duke University · Durham, NC, USA</div>
-          <div class="tl-desc">Conducted comparative evaluation of machine learning models for threat detection and documented implementation recommendations.</div>
+          <div class="tl-desc">Conducted research on state-of-the-art machine learning techniques for threat detection, developed proof-of-concept models, and documented comparative evaluations and implementation recommendations.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -394,7 +407,7 @@ footer span { color: var(--text); }
         <div class="tl-content">
           <div class="tl-role">Cybersecurity Services Intern</div>
           <div class="tl-company">Technology Control Co. (TCC) · Riyadh, SA</div>
-          <div class="tl-desc">Rotated through Security Operations Center (SOC), Digital Forensics and Incident Response (DFIR), and Vulnerability Assessment and Penetration Testing (VAPT) teams.</div>
+          <div class="tl-desc">Rotated through Security Operations Center, Digital Forensics and Incident Response, and Vulnerability Assessment and Penetration Testing teams.</div>
         </div>
       </div>
     </div>
@@ -469,7 +482,7 @@ footer span { color: var(--text); }
     <p class="section-sub reveal">Projects at the crossroads of AI and Security.</p>
     <div class="projects-grid reveal">
       <div class="project-card">
-        <div class="project-num">01 / featured</div>
+        <div class="project-num">01</div>
         <h3>Leveraging Machine Learning for Security Operations</h3>
         <p>Full-stack web application that automates alert triage, enrichment, and classification using predefined rule sets and the Planisphere API. Includes a RESTful API for structured threat data ingestion and a front-end dashboard to visualize enriched alerts.</p>
         <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Docker</span><span class="stack-tag">Podman</span><span class="stack-tag">HTML/CSS</span></div>
@@ -478,7 +491,7 @@ footer span { color: var(--text); }
         <div class="project-num">02</div>
         <h3>Intelligent Requirement Elicitation</h3>
         <p>AI pipeline that automates software requirements extraction from unstructured user reviews. Uses BERTopic for unsupervised topic modeling (SBERT, UMAP, HDBSCAN) and GPT-4o with prompt engineering to generate formal, testable software requirements.</p>
-        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">BERTopic</span><span class="stack-tag">GPT-4o</span><span class="stack-tag">NLTK</span><span class="stack-tag">SBERT</span></div>
+        <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">BERTopic</span><span class="stack-tag">GPT-4o</span></div>
       </div>
       <div class="project-card">
         <div class="project-num">03</div>
@@ -503,7 +516,7 @@ footer span { color: var(--text); }
         <div class="tl-content">
           <div class="tl-role">Tuwaiq Cybersecurity (Blue Team)</div>
           <div class="tl-company">Tuwaiq Academy · Riyadh, SA</div>
-          <div class="tl-desc">Bootcamp covering defensive security operations. Earned OffSec Defense Analyst (OSDA) certification and Network Penetration Testing Essentials (PEN-100) badge.</div>
+          <div class="tl-desc">Earned OffSec Defense Analyst (OSDA) certification and Network Penetration Testing Essentials (PEN-100) badge.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -512,7 +525,7 @@ footer span { color: var(--text); }
         <div class="tl-content">
           <div class="tl-role">Cybersecurity &amp; AI Specialization</div>
           <div class="tl-company">KAUST Academy · Riyadh, SA</div>
-          <div class="tl-desc">Selected as one of the top 15 out of 4,000+ students after three competitive stages, in partnership with the National Cybersecurity Authority and SITE. Led to a research internship at Duke University.</div>
+          <div class="tl-desc">Selected by the academy in partnership with the National Cybersecurity Authority and SITE as one of the top 15 out of 4,000+ students for a research internship at Duke University after excelling through three competitive stages of the program.</div>
         </div>
       </div>
     </div>
@@ -541,7 +554,7 @@ footer span { color: var(--text); }
         <div class="tl-content">
           <div class="tl-role">Teaching Assistant, Tamkeen Journey</div>
           <div class="tl-company">Cybersecurity Club · King Saud University, Riyadh, SA</div>
-          <div class="tl-desc">Assisted students through CompTIA Security+ (SY0-701) and INE Security Junior Penetration Tester (eJPTv2) certification prep at the Tamkeen Journey program.</div>
+          <div class="tl-desc">Assisted students through CompTIA Security+ (SY0-701) and INE Security Junior Penetration Tester (eJPTv2) certification prep.</div>
         </div>
       </div>
     </div>
@@ -555,7 +568,7 @@ footer span { color: var(--text); }
     <h2 class="section-heading reveal">Let's talk</h2>
     <div class="contact-wrap reveal">
       <h3>Open to new opportunities</h3>
-      <p>Whether you're working on AI systems, security products, or research that sits at the intersection of both, I'd love to hear from you.</p>
+      <p>Whether you're working on AI systems, security products, or projects that sits at the intersection of both, I'd love to hear from you.</p>
       <div class="contact-links">
         <a class="contact-link" href="mailto:alasmaridalia@gmail.com">
           <div class="contact-icon">✉</div>
